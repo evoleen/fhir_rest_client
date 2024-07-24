@@ -1,13 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:fhir/r4.dart';
-import 'package:fhir_client/src/fhir_client_exception.dart';
-import 'package:fhir_client/src/fhir_request.dart';
+import 'package:fhir_rest_client/src/fhir_rest_client_exception.dart';
+import 'package:fhir_rest_client/src/fhir_request.dart';
 
-class FhirClient {
+class FhirRestClient {
   final Dio dio;
   final Uri baseUrl;
 
-  FhirClient({required this.dio, required this.baseUrl});
+  FhirRestClient({required this.dio, required this.baseUrl});
 
   /// Assembles the URL (without parameters) for the request, consisting
   /// of the FHIR server's base URL, the path to the compartment (if requested)
@@ -19,7 +19,7 @@ class FhirClient {
 
     // check if we have a valid compartment definition or no definition at all
     if ((requestCompartmentName == null) ^ (requestCompartmentId == null)) {
-      throw FhirClientException(
+      throw FhirRestClientException(
           'Compartment must be specified by entity AND id or not at all.');
     }
 
@@ -70,17 +70,17 @@ class FhirClient {
       case 400:
         final operationOutcome =
             OperationOutcome.fromJson(response.data as Map<String, dynamic>);
-        throw FhirClientException(
+        throw FhirRestClientException(
             'Backend errors: ${operationOutcome.issue.map((e) => e.diagnostics).join(', ')}');
       // we are not authorized to query the backend
       case 401:
-        throw FhirClientException(
+        throw FhirRestClientException(
             'Not authorized to make requests to the FHIR backend.');
       case 500:
-        throw FhirClientException(
+        throw FhirRestClientException(
             'Invalid request - FHIR backend encountered internal server error.');
       default:
-        throw FhirClientException('Error querying FHIR backend.');
+        throw FhirRestClientException('Error querying FHIR backend.');
     }
   }
 
@@ -89,7 +89,7 @@ class FhirClient {
   /// [uri] is a relative Uri to [baseUrl].
   Future<Map<String, dynamic>> _search({required FhirRequest request}) async {
     if (request.entityId != null) {
-      throw FhirClientException(
+      throw FhirRestClientException(
           'Cannot execute search operation for entity ${request.entityName} with explicit id ${request.entityId}.');
     }
 
@@ -120,17 +120,17 @@ class FhirClient {
       case 400:
         final operationOutcome =
             OperationOutcome.fromJson(response.data as Map<String, dynamic>);
-        throw FhirClientException(
+        throw FhirRestClientException(
             'Backend errors: ${operationOutcome.issue.map((e) => e.diagnostics).join(', ')}');
       // we are not authorized to query the backend
       case 401:
-        throw FhirClientException(
+        throw FhirRestClientException(
             'Not authorized to make requests to the FHIR backend.');
       case 500:
-        throw FhirClientException(
+        throw FhirRestClientException(
             'Invalid request - FHIR backend encountered internal server error.');
       default:
-        throw FhirClientException('Error querying FHIR backend.');
+        throw FhirRestClientException('Error querying FHIR backend.');
     }
   }
 
@@ -139,7 +139,7 @@ class FhirClient {
   /// [uri] is a relative Uri to [baseUrl].
   Future<Map<String, dynamic>> _read({required FhirRequest request}) async {
     if (request.entityId == null) {
-      throw FhirClientException(
+      throw FhirRestClientException(
           'Cannot execute read operation for entity ${request.entityName} without entity id.');
     }
 
@@ -170,21 +170,21 @@ class FhirClient {
       case 400:
         final operationOutcome =
             OperationOutcome.fromJson(response.data as Map<String, dynamic>);
-        throw FhirClientException(
+        throw FhirRestClientException(
             'Backend errors: ${operationOutcome.issue.map((e) => e.diagnostics).join(', ')}');
       // we are not authorized to query the backend
       case 401:
-        throw FhirClientException(
+        throw FhirRestClientException(
             'Not authorized to make requests to the FHIR backend.');
       // entity was not found
       case 404:
       case 410:
-        throw FhirClientEntityNotFoundException();
+        throw FhirRestClientEntityNotFoundException();
       case 500:
-        throw FhirClientException(
+        throw FhirRestClientException(
             'Invalid request - FHIR backend encountered internal server error.');
       default:
-        throw FhirClientException('Error querying FHIR backend.');
+        throw FhirRestClientException('Error querying FHIR backend.');
     }
   }
 
@@ -220,21 +220,21 @@ class FhirClient {
       case 400:
         final operationOutcome =
             OperationOutcome.fromJson(response.data as Map<String, dynamic>);
-        throw FhirClientException(
+        throw FhirRestClientException(
             'Backend errors: ${operationOutcome.issue.map((e) => e.diagnostics).join(', ')}');
       // we are not authorized to query the backend
       case 401:
-        throw FhirClientException(
+        throw FhirRestClientException(
             'Not authorized to make requests to the FHIR backend.');
       // entity was not found
       case 404:
       case 410:
-        throw FhirClientEntityNotFoundException();
+        throw FhirRestClientEntityNotFoundException();
       case 500:
-        throw FhirClientException(
+        throw FhirRestClientException(
             'Invalid request - FHIR backend encountered internal server error.');
       default:
-        throw FhirClientException('Error querying FHIR backend.');
+        throw FhirRestClientException('Error querying FHIR backend.');
     }
   }
 
@@ -264,21 +264,21 @@ class FhirClient {
       case 400:
         final operationOutcome =
             OperationOutcome.fromJson(response.data as Map<String, dynamic>);
-        throw FhirClientException(
+        throw FhirRestClientException(
             'Backend errors: ${operationOutcome.issue.map((e) => e.diagnostics).join(', ')}');
       // we are not authorized to query the backend
       case 401:
-        throw FhirClientException(
+        throw FhirRestClientException(
             'Not authorized to make requests to the FHIR backend.');
       // entity was not found
       case 404:
       case 410:
-        throw FhirClientEntityNotFoundException();
+        throw FhirRestClientEntityNotFoundException();
       case 500:
-        throw FhirClientException(
+        throw FhirRestClientException(
             'Invalid request - FHIR backend encountered internal server error.');
       default:
-        throw FhirClientException('Error querying FHIR backend.');
+        throw FhirRestClientException('Error querying FHIR backend.');
     }
   }
 
