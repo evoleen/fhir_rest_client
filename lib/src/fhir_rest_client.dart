@@ -172,7 +172,7 @@ class FhirRestClient {
       options: Options(
         headers: {
           'Accept': 'application/json',
-          'Content-type': 'application/x-www-form-urlencoded',
+          'Content-type': 'application/json',
         },
       ),
     );
