@@ -4,3 +4,6 @@
 
 # FVM Version Cache
 .fvm/
+
+pubspec.lock
+*.DS_Store
