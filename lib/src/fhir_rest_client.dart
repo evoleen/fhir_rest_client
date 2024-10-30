@@ -9,6 +9,27 @@ class FhirRestClient {
 
   FhirRestClient({required this.dio, required this.baseUrl});
 
+  Future<List<String>> getSchema() async {
+    final response = await dio.get(
+      baseUrl.replace(path: 'metadata').toString(),
+      options: null,
+    );
+
+    final data = response.data as Map<String, dynamic>;
+    final resources = data['rest'][0]['resource'] as List<dynamic>;
+
+    final schema = resources
+        .where((item) =>
+            item is Map<String, dynamic> &&
+            item.containsKey('interaction') &&
+            (item['interaction'] as List).isNotEmpty)
+        .map((item) => item['type'])
+        .cast<String>()
+        .toList();
+
+    return schema;
+  }
+
   /// Assembles the URL (without parameters) for the request, consisting
   /// of the FHIR server's base URL, the path to the compartment (if requested)
   /// and the path to the entity including its ID.
@@ -104,12 +125,6 @@ class FhirRestClient {
     // send request
     final response = await dio.get(
       requestUrl.toString(),
-      options: Options(
-        headers: {
-          'Accept': 'application/json',
-          'Content-type': 'application/json',
-        },
-      ),
     );
 
     switch (response.statusCode) {
@@ -157,7 +172,7 @@ class FhirRestClient {
       options: Options(
         headers: {
           'Accept': 'application/json',
-          'Content-type': 'application/json',
+          'Content-type': 'application/x-www-form-urlencoded',
         },
       ),
     );
