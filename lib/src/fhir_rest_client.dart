@@ -125,6 +125,12 @@ class FhirRestClient {
     // send request
     final response = await dio.get(
       requestUrl.toString(),
+      options: Options(
+        headers: {
+          'Accept': 'application/json',
+          'Content-type': 'application/json',
+        },
+      ),
     );
 
     switch (response.statusCode) {
