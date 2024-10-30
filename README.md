@@ -12,7 +12,11 @@ final fhirRestclient = FhirRestClient(
         BaseOptions(
             connectTimeout: const Duration(milliseconds: 30000),
             receiveTimeout: const Duration(milliseconds: 30000),
-            headers: {'Authorization': 'Bearer MYTOKEN'},
+            headers: {
+                'Accept': 'application/fhir+json',
+                'Content-type': 'application/fhir+json',
+                'Authorization': 'Bearer MYTOKEN',
+            },
         ),
     ),
     baseUrl: Uri.parse('https://myfhirrestserver.com),
