@@ -12,6 +12,12 @@ class FhirRestClient {
   Future<List<String>> getSchema() async {
     final response = await dio.get(
       baseUrl.replace(path: 'metadata').toString(),
+      options: Options(
+        headers: {
+          'Accept': 'application/fhir+json',
+          'Content-type': 'application/fhir+json',
+        },
+      ),
     );
 
     final data = response.data as Map<String, dynamic>;
@@ -74,6 +80,12 @@ class FhirRestClient {
     final response = await dio.post(
       requestUrl.toString(),
       data: parameters,
+      options: Options(
+        headers: {
+          'Accept': 'application/fhir+json',
+          'Content-type': 'application/fhir+json',
+        },
+      ),
     );
 
     switch (response.statusCode) {
@@ -118,6 +130,12 @@ class FhirRestClient {
     // send request
     final response = await dio.get(
       requestUrl.toString(),
+      options: Options(
+        headers: {
+          'Accept': 'application/fhir+json',
+          'Content-type': 'application/fhir+json',
+        },
+      ),
     );
 
     switch (response.statusCode) {
@@ -162,6 +180,12 @@ class FhirRestClient {
     // send request
     final response = await dio.get(
       requestUrl.toString(),
+      options: Options(
+        headers: {
+          'Accept': 'application/fhir+json',
+          'Content-type': 'application/fhir+json',
+        },
+      ),
     );
 
     switch (response.statusCode) {
@@ -205,6 +229,12 @@ class FhirRestClient {
     final response = await dio.put(
       requestUrl.toString(),
       data: parameters,
+      options: Options(
+        headers: {
+          'Accept': 'application/fhir+json',
+          'Content-type': 'application/fhir+json',
+        },
+      ),
     );
 
     switch (response.statusCode) {
@@ -243,6 +273,12 @@ class FhirRestClient {
     // send request
     final response = await dio.delete(
       requestUrl.toString(),
+      options: Options(
+        headers: {
+          'Accept': 'application/fhir+json',
+          'Content-type': 'application/fhir+json',
+        },
+      ),
     );
 
     switch (response.statusCode) {
