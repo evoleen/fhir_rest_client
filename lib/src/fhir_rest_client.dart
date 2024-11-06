@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:fhir/r4.dart';
-import 'package:fhir_rest_client/src/fhir_rest_client_exception.dart';
 import 'package:fhir_rest_client/src/fhir_request.dart';
+import 'package:fhir_rest_client/src/fhir_rest_client_exception.dart';
 
 class FhirRestClient {
   final Dio dio;
@@ -9,7 +9,7 @@ class FhirRestClient {
 
   FhirRestClient({required this.dio, required this.baseUrl});
 
-  Future<List<String>> getSchema() async {
+  Future<Map<String, dynamic>> getCapabilityStatement() async {
     final response = await dio.get(
       baseUrl.replace(path: 'metadata').toString(),
       options: Options(
@@ -20,19 +20,7 @@ class FhirRestClient {
       ),
     );
 
-    final data = response.data as Map<String, dynamic>;
-    final resources = data['rest'][0]['resource'] as List<dynamic>;
-
-    final schema = resources
-        .where((item) =>
-            item is Map<String, dynamic> &&
-            item.containsKey('interaction') &&
-            (item['interaction'] as List).isNotEmpty)
-        .map((item) => item['type'])
-        .cast<String>()
-        .toList();
-
-    return schema;
+    return response.data as Map<String, dynamic>;
   }
 
   /// Assembles the URL (without parameters) for the request, consisting
