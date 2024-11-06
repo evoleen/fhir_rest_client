@@ -13,8 +13,6 @@ final fhirRestclient = FhirRestClient(
             connectTimeout: const Duration(milliseconds: 30000),
             receiveTimeout: const Duration(milliseconds: 30000),
             headers: {
-                'Accept': 'application/fhir+json',
-                'Content-type': 'application/fhir+json',
                 'Authorization': 'Bearer MYTOKEN',
             },
         ),
