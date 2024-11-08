@@ -130,4 +130,32 @@ class FhirRequest with _$FhirRequest {
 
     return copyWith(parameters: newParameters);
   }
+
+  /// Utility function for search operations. Returns a new [FhirRequest]
+  /// instance with an additional search parameter restricting the search
+  /// to a patient reference [onField] in the searched entity which also
+  /// has a Patient.managingOrganization field matching any of the
+  /// organizations in [practitionerRoles].
+  /// This method is used to filter search requests for patient documents
+  /// by restricting the search to documents which belong to an organization
+  /// in which the practitioner has matching role.
+  FhirRequest addPatientOrganizationRelationshipFilter({
+    required String onField,
+    required List<String> organizationIds,
+  }) {
+    return addSearchFilter(
+        onField: '$onField:Patient.organization',
+        filter: organizationIds.join(','));
+  }
+
+  /// Force an empty search result by adding
+  /// _tag=emptySearch (which will result in empty search list (or entities
+  /// with this tag that we want to explicitly include in this scenario)
+
+  FhirRequest enforceEmptySearchResult() {
+    final newParameters = Map.of(parameters);
+    newParameters['_tag'] = 'emptySearch';
+    newParameters['_tag:missing'] = 'true';
+    return copyWith(parameters: newParameters);
+  }
 }
