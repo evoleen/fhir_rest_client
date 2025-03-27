@@ -16,7 +16,7 @@ class FhirRestClient {
     final requestCompartmentName = request.compartmentName;
     final requestCompartmentId = request.compartmentId;
     final requestEntityId = request.entityId;
-
+    final requestPathParameters = request.pathParameters;
     // check if we have a valid compartment definition or no definition at all
     if ((requestCompartmentName == null) ^ (requestCompartmentId == null)) {
       throw FhirRestClientException(
@@ -31,6 +31,7 @@ class FhirRestClient {
       if (requestCompartmentId != null) requestCompartmentId,
       request.entityName,
       if (requestEntityId != null) requestEntityId,
+      if (requestPathParameters.isNotEmpty) ...requestPathParameters,
     ]);
 
     return requestUrl;

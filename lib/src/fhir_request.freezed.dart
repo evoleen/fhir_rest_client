@@ -47,6 +47,9 @@ mixin _$FhirRequest {
   /// as URL query parameters.
   Map<String, dynamic> get parameters => throw _privateConstructorUsedError;
 
+  /// Additional path parameters to attach to the request.
+  List<String> get pathParameters => throw _privateConstructorUsedError;
+
   /// Create a copy of FhirRequest
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -66,7 +69,8 @@ abstract class $FhirRequestCopyWith<$Res> {
       String? compartmentId,
       String entityName,
       String? entityId,
-      Map<String, dynamic> parameters});
+      Map<String, dynamic> parameters,
+      List<String> pathParameters});
 }
 
 /// @nodoc
@@ -90,6 +94,7 @@ class _$FhirRequestCopyWithImpl<$Res, $Val extends FhirRequest>
     Object? entityName = null,
     Object? entityId = freezed,
     Object? parameters = null,
+    Object? pathParameters = null,
   }) {
     return _then(_value.copyWith(
       operation: null == operation
@@ -116,6 +121,10 @@ class _$FhirRequestCopyWithImpl<$Res, $Val extends FhirRequest>
           ? _value.parameters
           : parameters // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
+      pathParameters: null == pathParameters
+          ? _value.pathParameters
+          : pathParameters // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ) as $Val);
   }
 }
@@ -134,7 +143,8 @@ abstract class _$$FhirRequestImplCopyWith<$Res>
       String? compartmentId,
       String entityName,
       String? entityId,
-      Map<String, dynamic> parameters});
+      Map<String, dynamic> parameters,
+      List<String> pathParameters});
 }
 
 /// @nodoc
@@ -156,6 +166,7 @@ class __$$FhirRequestImplCopyWithImpl<$Res>
     Object? entityName = null,
     Object? entityId = freezed,
     Object? parameters = null,
+    Object? pathParameters = null,
   }) {
     return _then(_$FhirRequestImpl(
       operation: null == operation
@@ -182,6 +193,10 @@ class __$$FhirRequestImplCopyWithImpl<$Res>
           ? _value._parameters
           : parameters // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
+      pathParameters: null == pathParameters
+          ? _value._pathParameters
+          : pathParameters // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -195,8 +210,10 @@ class _$FhirRequestImpl extends _FhirRequest {
       this.compartmentId,
       required this.entityName,
       this.entityId,
-      final Map<String, dynamic> parameters = const {}})
+      final Map<String, dynamic> parameters = const {},
+      final List<String> pathParameters = const []})
       : _parameters = parameters,
+        _pathParameters = pathParameters,
         super._();
 
   @override
@@ -247,9 +264,21 @@ class _$FhirRequestImpl extends _FhirRequest {
     return EqualUnmodifiableMapView(_parameters);
   }
 
+  /// Additional path parameters to attach to the request.
+  final List<String> _pathParameters;
+
+  /// Additional path parameters to attach to the request.
+  @override
+  @JsonKey()
+  List<String> get pathParameters {
+    if (_pathParameters is EqualUnmodifiableListView) return _pathParameters;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_pathParameters);
+  }
+
   @override
   String toString() {
-    return 'FhirRequest(operation: $operation, compartmentName: $compartmentName, compartmentId: $compartmentId, entityName: $entityName, entityId: $entityId, parameters: $parameters)';
+    return 'FhirRequest(operation: $operation, compartmentName: $compartmentName, compartmentId: $compartmentId, entityName: $entityName, entityId: $entityId, parameters: $parameters, pathParameters: $pathParameters)';
   }
 
   @override
@@ -268,7 +297,9 @@ class _$FhirRequestImpl extends _FhirRequest {
             (identical(other.entityId, entityId) ||
                 other.entityId == entityId) &&
             const DeepCollectionEquality()
-                .equals(other._parameters, _parameters));
+                .equals(other._parameters, _parameters) &&
+            const DeepCollectionEquality()
+                .equals(other._pathParameters, _pathParameters));
   }
 
   @override
@@ -279,7 +310,8 @@ class _$FhirRequestImpl extends _FhirRequest {
       compartmentId,
       entityName,
       entityId,
-      const DeepCollectionEquality().hash(_parameters));
+      const DeepCollectionEquality().hash(_parameters),
+      const DeepCollectionEquality().hash(_pathParameters));
 
   /// Create a copy of FhirRequest
   /// with the given fields replaced by the non-null parameter values.
@@ -297,7 +329,8 @@ abstract class _FhirRequest extends FhirRequest {
       final String? compartmentId,
       required final String entityName,
       final String? entityId,
-      final Map<String, dynamic> parameters}) = _$FhirRequestImpl;
+      final Map<String, dynamic> parameters,
+      final List<String> pathParameters}) = _$FhirRequestImpl;
   const _FhirRequest._() : super._();
 
   @override
@@ -336,6 +369,10 @@ abstract class _FhirRequest extends FhirRequest {
   /// as URL query parameters.
   @override
   Map<String, dynamic> get parameters;
+
+  /// Additional path parameters to attach to the request.
+  @override
+  List<String> get pathParameters;
 
   /// Create a copy of FhirRequest
   /// with the given fields replaced by the non-null parameter values.
