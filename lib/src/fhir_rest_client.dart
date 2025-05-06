@@ -9,7 +9,7 @@ class FhirRestClient {
 
   FhirRestClient({required this.dio, required this.baseUrl});
 
-  Future<Map<String, dynamic>> getCapabilityStatement() async {
+  Future<CapabilityStatement?> getCapabilityStatement() async {
     final response = await dio.get(
       baseUrl.replace(path: 'metadata').toString(),
       options: Options(
@@ -20,7 +20,9 @@ class FhirRestClient {
       ),
     );
 
-    return response.data as Map<String, dynamic>;
+    final capabilityStatement =
+        CapabilityStatement.fromJson(response.data as Map<String, dynamic>);
+    return capabilityStatement;
   }
 
   /// Assembles the URL (without parameters) for the request, consisting
