@@ -23,7 +23,7 @@ enum FhirSearchOperator {
 /// queried and [parameters] optionally contains a list of
 /// search parameters.
 /// The [FhirClient] will assemble the request into the format
-/// of fhirBaseUrl/compartment/entity?queryParameters.
+/// of fhirBaseUrl/compartment/entity/pathParameters?queryParameters.
 /// It can optionally be used together with validators that will
 /// change part of the request parameters during validation to
 /// ensure RBAC restrictions.
@@ -62,6 +62,9 @@ class FhirRequest with _$FhirRequest {
     /// For read operations, this will be search parameters that are passed
     /// as URL query parameters.
     @Default({}) Map<String, dynamic> parameters,
+
+    /// Additional path parameters to attach to the request.
+    @Default([]) List<String> pathParameters,
   }) = _FhirRequest;
 
   /// Utility function for search operations. Returns a new [FhirRequest]
