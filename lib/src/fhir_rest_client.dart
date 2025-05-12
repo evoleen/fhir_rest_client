@@ -1,13 +1,27 @@
 import 'package:dio/dio.dart';
 import 'package:fhir/r4.dart';
-import 'package:fhir_rest_client/src/fhir_rest_client_exception.dart';
 import 'package:fhir_rest_client/src/fhir_request.dart';
+import 'package:fhir_rest_client/src/fhir_rest_client_exception.dart';
 
 class FhirRestClient {
   final Dio dio;
   final Uri baseUrl;
 
   FhirRestClient({required this.dio, required this.baseUrl});
+
+  Future<Map<String, dynamic>> getCapabilityStatement() async {
+    final response = await dio.get(
+      baseUrl.replace(path: 'metadata').toString(),
+      options: Options(
+        headers: {
+          'Accept': 'application/fhir+json',
+          'Content-type': 'application/fhir+json',
+        },
+      ),
+    );
+
+    return response.data as Map<String, dynamic>;
+  }
 
   /// Assembles the URL (without parameters) for the request, consisting
   /// of the FHIR server's base URL, the path to the compartment (if requested)
@@ -57,8 +71,8 @@ class FhirRestClient {
       data: parameters,
       options: Options(
         headers: {
-          'Accept': 'application/json',
-          'Content-type': 'application/json',
+          'Accept': 'application/fhir+json',
+          'Content-type': 'application/fhir+json',
         },
       ),
     );
@@ -107,8 +121,8 @@ class FhirRestClient {
       requestUrl.toString(),
       options: Options(
         headers: {
-          'Accept': 'application/json',
-          'Content-type': 'application/json',
+          'Accept': 'application/fhir+json',
+          'Content-type': 'application/fhir+json',
         },
       ),
     );
@@ -157,8 +171,8 @@ class FhirRestClient {
       requestUrl.toString(),
       options: Options(
         headers: {
-          'Accept': 'application/json',
-          'Content-type': 'application/json',
+          'Accept': 'application/fhir+json',
+          'Content-type': 'application/fhir+json',
         },
       ),
     );
@@ -206,8 +220,8 @@ class FhirRestClient {
       data: parameters,
       options: Options(
         headers: {
-          'Accept': 'application/json',
-          'Content-type': 'application/json',
+          'Accept': 'application/fhir+json',
+          'Content-type': 'application/fhir+json',
         },
       ),
     );
@@ -250,8 +264,8 @@ class FhirRestClient {
       requestUrl.toString(),
       options: Options(
         headers: {
-          'Accept': 'application/json',
-          'Content-type': 'application/json',
+          'Accept': 'application/fhir+json',
+          'Content-type': 'application/fhir+json',
         },
       ),
     );
