@@ -1,7 +1,7 @@
 name: fhir_rest_client
 description: A Dart package to describe FHIR REST calls and corresponding client
   to send these requests to a FHIR server
-version: 0.0.2
+version: 0.0.3
 homepage: https://www.evoleen.com
 repository: https://github.com/evoleen/fhir_rest_client
 
