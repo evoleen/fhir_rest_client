@@ -61,7 +61,7 @@ class FhirRestClient {
     // such as $reindex, $export or similar (these operations usually have
     // different resourceType as parameter)
     final parameters = Map.from(request.parameters);
-    if (!request.entityName.startsWith('\$')) {
+    if (!request.entityName.startsWith('\$') && request.entityName.isNotEmpty) {
       parameters["resourceType"] = request.entityName;
     }
 
@@ -79,6 +79,7 @@ class FhirRestClient {
 
     switch (response.statusCode) {
       // request was ok
+      case 200:
       case 201:
         return response.data as Map<String, dynamic>;
       // backend validation failed
