@@ -28,7 +28,7 @@ enum FhirSearchOperator {
 /// change part of the request parameters during validation to
 /// ensure RBAC restrictions.
 @freezed
-class FhirRequest with _$FhirRequest {
+abstract class FhirRequest with _$FhirRequest {
   const FhirRequest._();
 
   const factory FhirRequest({
