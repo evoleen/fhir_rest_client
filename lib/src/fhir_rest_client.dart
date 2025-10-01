@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:fhir/r4.dart';
+import 'package:fhir_r4/fhir_r4.dart';
 import 'package:fhir_rest_client/src/fhir_request.dart';
 import 'package:fhir_rest_client/src/fhir_rest_client_exception.dart';
 

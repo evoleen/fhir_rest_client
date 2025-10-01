@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,14 +9,12 @@ part of 'fhir_request.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$FhirRequest {
-  FhirRequestOperation get operation => throw _privateConstructorUsedError;
+  FhirRequestOperation get operation;
 
   /// Specifies the compartment name to use, for example 'Patient'.
   /// Together with [compartmentId] the full compartment reference will
@@ -24,7 +22,7 @@ mixin _$FhirRequest {
   /// If no compartment is specified, the request will be processed
   /// without a compartment. If a compartment is specified, the request
   /// will be scoped to the compartment.
-  String? get compartmentName => throw _privateConstructorUsedError;
+  String? get compartmentName;
 
   /// Specifies the compartment ID to use, for example '12345'.
   /// Together with [compartmentName] the full compartment reference will
@@ -32,110 +30,74 @@ mixin _$FhirRequest {
   /// If no compartment is specified, the request will be processed
   /// without a compartment. If a compartment is specified, the request
   /// will be scoped to the compartment.
-  String? get compartmentId => throw _privateConstructorUsedError;
+  String? get compartmentId;
 
   /// Name of entity to query, such as 'Patient'
-  String get entityName => throw _privateConstructorUsedError;
+  String get entityName;
 
   /// ID of entity to query. This is only needed to read queries but not
   /// required for searches.
-  String? get entityId => throw _privateConstructorUsedError;
+  String? get entityId;
 
   /// Parameters to attach to the request. In case of create or update operations,
   /// this will contain the JSON body of the entity to create or update.
   /// For read operations, this will be search parameters that are passed
   /// as URL query parameters.
-  Map<String, dynamic> get parameters => throw _privateConstructorUsedError;
+  Map<String, dynamic> get parameters;
 
   /// Additional path parameters to attach to the request.
-  List<String> get pathParameters => throw _privateConstructorUsedError;
+  List<String> get pathParameters;
 
   /// Create a copy of FhirRequest
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $FhirRequestCopyWith<FhirRequest> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $FhirRequestCopyWith<$Res> {
-  factory $FhirRequestCopyWith(
-          FhirRequest value, $Res Function(FhirRequest) then) =
-      _$FhirRequestCopyWithImpl<$Res, FhirRequest>;
-  @useResult
-  $Res call(
-      {FhirRequestOperation operation,
-      String? compartmentName,
-      String? compartmentId,
-      String entityName,
-      String? entityId,
-      Map<String, dynamic> parameters,
-      List<String> pathParameters});
-}
-
-/// @nodoc
-class _$FhirRequestCopyWithImpl<$Res, $Val extends FhirRequest>
-    implements $FhirRequestCopyWith<$Res> {
-  _$FhirRequestCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of FhirRequest
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $FhirRequestCopyWith<FhirRequest> get copyWith =>
+      _$FhirRequestCopyWithImpl<FhirRequest>(this as FhirRequest, _$identity);
+
   @override
-  $Res call({
-    Object? operation = null,
-    Object? compartmentName = freezed,
-    Object? compartmentId = freezed,
-    Object? entityName = null,
-    Object? entityId = freezed,
-    Object? parameters = null,
-    Object? pathParameters = null,
-  }) {
-    return _then(_value.copyWith(
-      operation: null == operation
-          ? _value.operation
-          : operation // ignore: cast_nullable_to_non_nullable
-              as FhirRequestOperation,
-      compartmentName: freezed == compartmentName
-          ? _value.compartmentName
-          : compartmentName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      compartmentId: freezed == compartmentId
-          ? _value.compartmentId
-          : compartmentId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      entityName: null == entityName
-          ? _value.entityName
-          : entityName // ignore: cast_nullable_to_non_nullable
-              as String,
-      entityId: freezed == entityId
-          ? _value.entityId
-          : entityId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      parameters: null == parameters
-          ? _value.parameters
-          : parameters // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      pathParameters: null == pathParameters
-          ? _value.pathParameters
-          : pathParameters // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is FhirRequest &&
+            (identical(other.operation, operation) ||
+                other.operation == operation) &&
+            (identical(other.compartmentName, compartmentName) ||
+                other.compartmentName == compartmentName) &&
+            (identical(other.compartmentId, compartmentId) ||
+                other.compartmentId == compartmentId) &&
+            (identical(other.entityName, entityName) ||
+                other.entityName == entityName) &&
+            (identical(other.entityId, entityId) ||
+                other.entityId == entityId) &&
+            const DeepCollectionEquality()
+                .equals(other.parameters, parameters) &&
+            const DeepCollectionEquality()
+                .equals(other.pathParameters, pathParameters));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      operation,
+      compartmentName,
+      compartmentId,
+      entityName,
+      entityId,
+      const DeepCollectionEquality().hash(parameters),
+      const DeepCollectionEquality().hash(pathParameters));
+
+  @override
+  String toString() {
+    return 'FhirRequest(operation: $operation, compartmentName: $compartmentName, compartmentId: $compartmentId, entityName: $entityName, entityId: $entityId, parameters: $parameters, pathParameters: $pathParameters)';
   }
 }
 
 /// @nodoc
-abstract class _$$FhirRequestImplCopyWith<$Res>
-    implements $FhirRequestCopyWith<$Res> {
-  factory _$$FhirRequestImplCopyWith(
-          _$FhirRequestImpl value, $Res Function(_$FhirRequestImpl) then) =
-      __$$FhirRequestImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $FhirRequestCopyWith<$Res> {
+  factory $FhirRequestCopyWith(
+          FhirRequest value, $Res Function(FhirRequest) _then) =
+      _$FhirRequestCopyWithImpl;
   @useResult
   $Res call(
       {FhirRequestOperation operation,
@@ -148,12 +110,11 @@ abstract class _$$FhirRequestImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FhirRequestImplCopyWithImpl<$Res>
-    extends _$FhirRequestCopyWithImpl<$Res, _$FhirRequestImpl>
-    implements _$$FhirRequestImplCopyWith<$Res> {
-  __$$FhirRequestImplCopyWithImpl(
-      _$FhirRequestImpl _value, $Res Function(_$FhirRequestImpl) _then)
-      : super(_value, _then);
+class _$FhirRequestCopyWithImpl<$Res> implements $FhirRequestCopyWith<$Res> {
+  _$FhirRequestCopyWithImpl(this._self, this._then);
+
+  final FhirRequest _self;
+  final $Res Function(FhirRequest) _then;
 
   /// Create a copy of FhirRequest
   /// with the given fields replaced by the non-null parameter values.
@@ -168,43 +129,245 @@ class __$$FhirRequestImplCopyWithImpl<$Res>
     Object? parameters = null,
     Object? pathParameters = null,
   }) {
-    return _then(_$FhirRequestImpl(
+    return _then(_self.copyWith(
       operation: null == operation
-          ? _value.operation
+          ? _self.operation
           : operation // ignore: cast_nullable_to_non_nullable
               as FhirRequestOperation,
       compartmentName: freezed == compartmentName
-          ? _value.compartmentName
+          ? _self.compartmentName
           : compartmentName // ignore: cast_nullable_to_non_nullable
               as String?,
       compartmentId: freezed == compartmentId
-          ? _value.compartmentId
+          ? _self.compartmentId
           : compartmentId // ignore: cast_nullable_to_non_nullable
               as String?,
       entityName: null == entityName
-          ? _value.entityName
+          ? _self.entityName
           : entityName // ignore: cast_nullable_to_non_nullable
               as String,
       entityId: freezed == entityId
-          ? _value.entityId
+          ? _self.entityId
           : entityId // ignore: cast_nullable_to_non_nullable
               as String?,
       parameters: null == parameters
-          ? _value._parameters
+          ? _self.parameters
           : parameters // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
       pathParameters: null == pathParameters
-          ? _value._pathParameters
+          ? _self.pathParameters
           : pathParameters // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
   }
 }
 
+/// Adds pattern-matching-related methods to [FhirRequest].
+extension FhirRequestPatterns on FhirRequest {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_FhirRequest value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _FhirRequest() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_FhirRequest value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _FhirRequest():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_FhirRequest value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _FhirRequest() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            FhirRequestOperation operation,
+            String? compartmentName,
+            String? compartmentId,
+            String entityName,
+            String? entityId,
+            Map<String, dynamic> parameters,
+            List<String> pathParameters)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _FhirRequest() when $default != null:
+        return $default(
+            _that.operation,
+            _that.compartmentName,
+            _that.compartmentId,
+            _that.entityName,
+            _that.entityId,
+            _that.parameters,
+            _that.pathParameters);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            FhirRequestOperation operation,
+            String? compartmentName,
+            String? compartmentId,
+            String entityName,
+            String? entityId,
+            Map<String, dynamic> parameters,
+            List<String> pathParameters)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _FhirRequest():
+        return $default(
+            _that.operation,
+            _that.compartmentName,
+            _that.compartmentId,
+            _that.entityName,
+            _that.entityId,
+            _that.parameters,
+            _that.pathParameters);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            FhirRequestOperation operation,
+            String? compartmentName,
+            String? compartmentId,
+            String entityName,
+            String? entityId,
+            Map<String, dynamic> parameters,
+            List<String> pathParameters)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _FhirRequest() when $default != null:
+        return $default(
+            _that.operation,
+            _that.compartmentName,
+            _that.compartmentId,
+            _that.entityName,
+            _that.entityId,
+            _that.parameters,
+            _that.pathParameters);
+      case _:
+        return null;
+    }
+  }
+}
+
 /// @nodoc
 
-class _$FhirRequestImpl extends _FhirRequest {
-  const _$FhirRequestImpl(
+class _FhirRequest extends FhirRequest {
+  const _FhirRequest(
       {required this.operation,
       this.compartmentName,
       this.compartmentId,
@@ -276,16 +439,19 @@ class _$FhirRequestImpl extends _FhirRequest {
     return EqualUnmodifiableListView(_pathParameters);
   }
 
+  /// Create a copy of FhirRequest
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'FhirRequest(operation: $operation, compartmentName: $compartmentName, compartmentId: $compartmentId, entityName: $entityName, entityId: $entityId, parameters: $parameters, pathParameters: $pathParameters)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$FhirRequestCopyWith<_FhirRequest> get copyWith =>
+      __$FhirRequestCopyWithImpl<_FhirRequest>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FhirRequestImpl &&
+            other is _FhirRequest &&
             (identical(other.operation, operation) ||
                 other.operation == operation) &&
             (identical(other.compartmentName, compartmentName) ||
@@ -313,71 +479,81 @@ class _$FhirRequestImpl extends _FhirRequest {
       const DeepCollectionEquality().hash(_parameters),
       const DeepCollectionEquality().hash(_pathParameters));
 
+  @override
+  String toString() {
+    return 'FhirRequest(operation: $operation, compartmentName: $compartmentName, compartmentId: $compartmentId, entityName: $entityName, entityId: $entityId, parameters: $parameters, pathParameters: $pathParameters)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$FhirRequestCopyWith<$Res>
+    implements $FhirRequestCopyWith<$Res> {
+  factory _$FhirRequestCopyWith(
+          _FhirRequest value, $Res Function(_FhirRequest) _then) =
+      __$FhirRequestCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {FhirRequestOperation operation,
+      String? compartmentName,
+      String? compartmentId,
+      String entityName,
+      String? entityId,
+      Map<String, dynamic> parameters,
+      List<String> pathParameters});
+}
+
+/// @nodoc
+class __$FhirRequestCopyWithImpl<$Res> implements _$FhirRequestCopyWith<$Res> {
+  __$FhirRequestCopyWithImpl(this._self, this._then);
+
+  final _FhirRequest _self;
+  final $Res Function(_FhirRequest) _then;
+
   /// Create a copy of FhirRequest
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$FhirRequestImplCopyWith<_$FhirRequestImpl> get copyWith =>
-      __$$FhirRequestImplCopyWithImpl<_$FhirRequestImpl>(this, _$identity);
+  $Res call({
+    Object? operation = null,
+    Object? compartmentName = freezed,
+    Object? compartmentId = freezed,
+    Object? entityName = null,
+    Object? entityId = freezed,
+    Object? parameters = null,
+    Object? pathParameters = null,
+  }) {
+    return _then(_FhirRequest(
+      operation: null == operation
+          ? _self.operation
+          : operation // ignore: cast_nullable_to_non_nullable
+              as FhirRequestOperation,
+      compartmentName: freezed == compartmentName
+          ? _self.compartmentName
+          : compartmentName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      compartmentId: freezed == compartmentId
+          ? _self.compartmentId
+          : compartmentId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      entityName: null == entityName
+          ? _self.entityName
+          : entityName // ignore: cast_nullable_to_non_nullable
+              as String,
+      entityId: freezed == entityId
+          ? _self.entityId
+          : entityId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      parameters: null == parameters
+          ? _self._parameters
+          : parameters // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+      pathParameters: null == pathParameters
+          ? _self._pathParameters
+          : pathParameters // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
 }
 
-abstract class _FhirRequest extends FhirRequest {
-  const factory _FhirRequest(
-      {required final FhirRequestOperation operation,
-      final String? compartmentName,
-      final String? compartmentId,
-      required final String entityName,
-      final String? entityId,
-      final Map<String, dynamic> parameters,
-      final List<String> pathParameters}) = _$FhirRequestImpl;
-  const _FhirRequest._() : super._();
-
-  @override
-  FhirRequestOperation get operation;
-
-  /// Specifies the compartment name to use, for example 'Patient'.
-  /// Together with [compartmentId] the full compartment reference will
-  /// be constructed, such as 'Patient/12345'.
-  /// If no compartment is specified, the request will be processed
-  /// without a compartment. If a compartment is specified, the request
-  /// will be scoped to the compartment.
-  @override
-  String? get compartmentName;
-
-  /// Specifies the compartment ID to use, for example '12345'.
-  /// Together with [compartmentName] the full compartment reference will
-  /// be constructed, such as 'Patient/12345'.
-  /// If no compartment is specified, the request will be processed
-  /// without a compartment. If a compartment is specified, the request
-  /// will be scoped to the compartment.
-  @override
-  String? get compartmentId;
-
-  /// Name of entity to query, such as 'Patient'
-  @override
-  String get entityName;
-
-  /// ID of entity to query. This is only needed to read queries but not
-  /// required for searches.
-  @override
-  String? get entityId;
-
-  /// Parameters to attach to the request. In case of create or update operations,
-  /// this will contain the JSON body of the entity to create or update.
-  /// For read operations, this will be search parameters that are passed
-  /// as URL query parameters.
-  @override
-  Map<String, dynamic> get parameters;
-
-  /// Additional path parameters to attach to the request.
-  @override
-  List<String> get pathParameters;
-
-  /// Create a copy of FhirRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FhirRequestImplCopyWith<_$FhirRequestImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on
