@@ -11,7 +11,7 @@ environment:
 # Add regular dependencies here.
 dependencies:
   dio: ^5.9.0
-  fhir_r4: ^0.4.2
+  fhir_r4: ^0.5.1
   freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
 
