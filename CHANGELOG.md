@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.5
+
+- Upgrade `fhir_r4` to `^0.14.0`.
+
 ## 0.0.4
 
 - Updated dependencies to their latest stable versions for improved compatibility and performance.
